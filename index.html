@@ -6,18 +6,33 @@
     <a-scene embedded arjs>
 
       <a-assets>
-       <a-assets-item id="obj" src="robot/The Limited 4.obj"></a-assets-item>
+       <a-assets-item id="robot_obj" src="robot/The Limited 4.obj"></a-assets-item>
+       <a-assets-item id="alien_obj" src="muhammer/Muhammer.obj"></a-assets-item>
+       <a-assets-item id="alien_mtl" src="muhammer/Muhammer.mtl"></a-assets-item>
+       <a-assets-item id="kurt_obj" src="kurt/kurt.obj"></a-assets-item>
+       <a-assets-item id="kurt_mtl" src="kurt/kurt.mtl"></a-assets-item>
       </a-assets>
 
       <a-marker type="pattern" url="pattern-twitter.patt">
-        <!-- マーカーの場所に箱を置く（見やすいようにワイヤーフレーム表示） -->
-        <a-box position="0 0.5 0" wireframe="true"></a-box>
+        <a-obj-model
+          src="#kurt_obj"
+          mtl="#kurt_mtl"
+          scale="0.05 0.05 0.05"
+          position="0 0.5 0">
+          <a-animation
+            attribute="rotation"
+            to="0 360 0"
+            dur="3000"
+            easing="linear"
+            repeat="indefinite">
+          </a-animation>
+        </a-obj-model>
       </a-marker>
 
       <a-marker type="pattern" url="pattern-penmark.patt">
 
         <a-obj-model
-          src="#obj"
+          src="#robot_obj"
           scale="0.05 0.05 0.05"
           position="0 0.5 0">
           <a-animation
